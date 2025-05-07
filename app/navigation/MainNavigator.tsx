@@ -3,7 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 
-const Stack = createStackNavigator();
+export type MainStackParamList = {
+  Home: undefined;
+  Details: { itemId: number };  // 예시로, Details 화면에 itemId라는 파라미터를 전달한다고 가정
+};
+
+const Stack = createStackNavigator<MainStackParamList>();
 const Tab = createBottomTabNavigator();
 
 //스택 네비게이터

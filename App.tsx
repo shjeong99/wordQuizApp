@@ -2,14 +2,18 @@
 import { NavigationContainer } from '@react-navigation/native';
 import MainNavigator from './app/navigation/MainNavigator';
 import AuthNavigator from './app/navigation/AuthNavigatior';
+import { ApplicationProvider } from '@ui-kitten/components';
+import * as eva from '@eva-design/eva';  // Eva 디자인 시스템
 
 export default function App() {
   const isLoggedIn = false; // 로그인 상태에 따라 스택 분기
 
   return (
-    <NavigationContainer>
-      {/* {isLoggedIn ? <AuthNavigator /> : <MainNavigator />} */}
-      {isLoggedIn ? <MainNavigator /> : <MainNavigator />}
-    </NavigationContainer>
+    <ApplicationProvider {...eva} theme={eva.light}>
+      <NavigationContainer>
+        {/* {isLoggedIn ? <AuthNavigator /> : <MainNavigator />} */}
+        {isLoggedIn ? <MainNavigator /> : <MainNavigator />}
+      </NavigationContainer>
+    </ApplicationProvider>
   );
 }

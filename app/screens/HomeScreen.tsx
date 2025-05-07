@@ -1,10 +1,21 @@
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import { Button } from '@ui-kitten/components';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { MainStackParamList } from '../navigation/MainNavigator'
 
-const HomeScreen = ({ navigation }: any) => {
+// navigation의 타입
+type HomeScreenNavigationProp = StackNavigationProp<MainStackParamList, 'Home'>;
+
+interface HomeScreenProps {
+  navigation: HomeScreenNavigationProp;
+}
+
+const HomeScreen = ({ navigation }: HomeScreenProps) => {
   return (
     <View>
       <Text>홈 화면</Text>
-      <Button title="세부 화면으로" onPress={() => navigation.navigate('Details')} />
+
+      <Button onPress={() => navigation.navigate('Details')}>세부 화면으로</Button>
     </View>
   );
 };
