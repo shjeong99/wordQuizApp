@@ -50,7 +50,7 @@ export default function MainNavigator() {
             <Center>
               <Icon mb="1" as={<MaterialCommunityIcons name={selected === 0 ? 'home' : 'home-outline'} />} color="white" size="sm" />
               <Text color="white" fontSize="12">
-                Home
+                홈
               </Text>
             </Center>
           </Pressable>
@@ -58,7 +58,31 @@ export default function MainNavigator() {
             <Center>
               <Icon mb="1" as={<MaterialIcons name="search" />} color="white" size="sm" />
               <Text color="white" fontSize="12">
-                Search
+                검색
+              </Text>
+            </Center>
+          </Pressable>
+          <Pressable opacity={selected === 2 ? 1 : 0.5} py="2" flex={1} onPress={() => setSelected(2)}>
+            <Center>
+              <Icon mb="1" as={<MaterialIcons name="view-list" />} color="white" size="sm" />
+              <Text color="white" fontSize="12">
+                내 단어  
+              </Text>
+            </Center>
+          </Pressable>
+          <Pressable opacity={selected === 3 ? 1 : 0.6} py="2" flex={1} onPress={() => setSelected(3)}>
+            <Center>
+              <Icon mb="1" as={<MaterialIcons name="help" />} color="white" size="sm" />
+              <Text color="white" fontSize="12">
+                퀴즈
+              </Text>
+            </Center>
+          </Pressable>
+          <Pressable opacity={selected === 4 ? 1 : 0.5} py="2" flex={1} onPress={() => setSelected(4)}>
+            <Center>
+              <Icon mb="1" as={<MaterialIcons name="image" />} color="white" size="sm" />
+              <Text color="white" fontSize="12">
+                불러오기
               </Text>
             </Center>
           </Pressable>
