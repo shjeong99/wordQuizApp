@@ -1,30 +1,12 @@
-import { View, Text } from 'react-native';
-import { Button } from '@ui-kitten/components';
+import { View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { MainStackParamList } from '../navigation/MainNavigator'
 import React from 'react';
-import { BottomNavigation, BottomNavigationTab, Icon, IconElement } from '@ui-kitten/components';
 
-const PersonIcon = (props): IconElement => (
-  <Icon
-    {...props}
-    name='person-outline'
-  />
-);
+//native-base
+import { Button } from 'native-base';
+import { Container, Text, Heading, Center, useColorMode } from "native-base";
 
-const BellIcon = (props): IconElement => (
-  <Icon
-    {...props}
-    name='bell-outline'
-  />
-);
-
-const EmailIcon = (props): IconElement => (
-  <Icon
-    {...props}
-    name='email-outline'
-  />
-);
 
 // navigation의 타입
 type HomeScreenNavigationProp = StackNavigationProp<MainStackParamList, 'Home'>;
@@ -34,35 +16,31 @@ interface HomeScreenProps {
 }
 
 const HomeScreen = ({ navigation }: HomeScreenProps) => {
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <View>
-      <Text>홈 화면</Text>
+    <Center flex={1} px="3" bg={colorMode === 'dark' ? 'coolGray.900' : 'warmGray.50'}>
+      <Container>
+      <Text fontSize="lg" color={colorMode === 'dark' ? 'white' : 'black'} mb="4">
+        홈 화면 - 현재 모드: {colorMode}
+      </Text>
+        <Text mt="3" fontWeight="medium">
+          NativeBase is a simple, modular and accessible component library that
+          gives you building blocks to build you React applications.
+        </Text>
+        <Button onPress={toggleColorMode}>다크모드 전환</Button>
+        <Button onPress={() => navigation.navigate('Details')}>세부 화면으로</Button>
 
-      <Button onPress={() => navigation.navigate('Details')}>세부 화면으로</Button>
+      </Container>
+    </Center>
+    // <View>
+    //   <Text>홈 화면</Text>
 
-<div>
-      <BottomNavigation
-      selectedIndex={selectedIndex}
-      onSelect={index => setSelectedIndex(index)}
-    >
-      <BottomNavigationTab
-        icon={PersonIcon}
-        title='USERS'
-      />
-      <BottomNavigationTab
-        icon={BellIcon}
-        title='ORDERS'
-      />
-      <BottomNavigationTab
-        icon={EmailIcon}
-        title='TRANSACTIONS'
-      />
-    </BottomNavigation>
-    </div>
-    </View>
+    //   <Button onPress={() => navigation.navigate('Details')}>세부 화면으로</Button>
+    // </View>
+    
   );
 };
+
 
 export default HomeScreen;
