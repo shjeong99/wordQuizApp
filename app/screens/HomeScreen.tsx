@@ -28,17 +28,11 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
           NativeBase is a simple, modular and accessible component library that
           gives you building blocks to build you React applications.
         </Text>
-        <Button onPress={toggleColorMode}>다크모드 전환</Button>
-        <Button onPress={() => navigation.navigate('Details')}>세부 화면으로</Button>
+        <Button onPress={toggleColorMode} bg="info.600">다크모드 전환</Button>
+        <Button onPress={() => navigation.navigate('Details')} bg="info.600">세부 화면으로</Button>
 
       </Container>
     </Center>
-    // <View>
-    //   <Text>홈 화면</Text>
-
-    //   <Button onPress={() => navigation.navigate('Details')}>세부 화면으로</Button>
-    // </View>
-    
   );
 };
 
