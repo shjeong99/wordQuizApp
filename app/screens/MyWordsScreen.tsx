@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 
-const Details = () => {
+const MyWordsScreen = () => {
   return (
     <View>
       <Text>세부 화면</Text>
@@ -8,4 +8,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default MyWordsScreen;

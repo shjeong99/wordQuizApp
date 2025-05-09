@@ -29,7 +29,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
           gives you building blocks to build you React applications.
         </Text>
         <Button onPress={toggleColorMode} bg="info.600">다크모드 전환</Button>
-        <Button onPress={() => navigation.navigate('Details')} bg="info.600">세부 화면으로</Button>
+        <Button onPress={() => navigation.navigate('MyWordsScreen')} bg="info.600">세부 화면으로</Button>
 
       </Container>
     </Center>
